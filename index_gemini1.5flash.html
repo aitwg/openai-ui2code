@@ -1,0 +1,287 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>股票資訊</title>
+<style>
+body {
+  font-family: sans-serif;
+  background-color: white;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.header > div {
+  display: flex;
+  align-items: center;
+}
+
+.header button {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.top-right-buttons {
+  display: flex;
+}
+
+.top-right-buttons button {
+  background-color: #ADD8E6;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0; /* Ensure no spacing between cells */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+.盈 {
+  color: #FFA500;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header > div {
+    margin-bottom: 10px; /* Add space between button groups on smaller screens */
+  }
+
+  .header button {
+    margin: 5px 0;
+    width: 100%; /* Make buttons full width on smaller screens */
+    box-sizing: border-box; /* Include padding and border in element width */
+  }
+
+  .top-right-buttons {
+    flex-direction: column;
+  }
+
+  .top-right-buttons button {
+    margin: 5px 0;
+    width: 100%; /* Make buttons full width on smaller screens */
+    box-sizing: border-box; /* Include padding and border in element width */
+  }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <button>新增股票</button>
+    <button>排序股票</button>
+  </div>
+  <div>
+    <button>編輯此群組</button>
+    <button>刪除此群組</button>
+  </div>
+  <div class="top-right-buttons">
+    <button>自選股行事曆</button>
+    <button>VIP</button>
+    <button>投資健檢</button>
+  </div>
+</div>
+
+<div class="table-container">
+<table>
+  <thead>
+    <tr>
+      <th><input type="checkbox"></th>
+      <th>股名/股號</th>
+      <th>股價</th>
+      <th>漲跌</th>
+      <th>漲跌幅(%)</th>
+      <th>買進</th>
+      <th>賣出</th>
+      <th>開盤</th>
+      <th>昨收</th>
+      <th>最高</th>
+      <th>最低</th>
+      <th>成交量(張)</th>
+      <th>時間(CST)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>宏達電<br>2498.TW</td>
+      <td>42.30</td>
+      <td class="negative">▼0.85</td>
+      <td class="negative">▼1.97%</td>
+      <td>42.25</td>
+      <td>42.30</td>
+      <td>43.20</td>
+      <td>43.15</td>
+      <td>43.30</td>
+      <td>42.15</td>
+      <td>4,570</td>
+      <td>14:30</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>耀登<br>3138.TW<span class="盈">盈</span></td>
+      <td>109.0</td>
+      <td class="negative">▼1.5</td>
+      <td class="negative">▼1.36%</td>
+      <td>109.0</td>
+      <td>109.5</td>
+      <td>110.5</td>
+      <td>110.5</td>
+      <td>111.0</td>
+      <td>108.0</td>
+      <td>99</td>
+      <td>13:30</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>聯發科<br>2454.TW<span class="盈">盈</span></td>
+      <td>1,410</td>
+      <td class="positive">▲30</td>
+      <td class="positive">▲2.17%</td>
+      <td>1,405</td>
+      <td>1,410</td>
+      <td>1,385</td>
+      <td>1,380</td>
+      <td>1,410</td>
+      <td>1,365</td>
+      <td>6,317</td>
+      <td>14:30</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>中磊<br>5388.TW</td>
+      <td>112.0</td>
+      <td class="negative">▼0.5</td>
+      <td class="negative">▼0.44%</td>
+      <td>111.5</td>
+      <td>112.5</td>
+      <td>113.0</td>
+      <td>112.5</td>
+      <td>114.0</td>
+      <td>111.5</td>
+      <td>1,103</td>
+      <td>14:30</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>合勤控<br>3704.TW<span class="盈">盈</span></td>
+      <td>39.65</td>
+      <td class="negative">▼0.20</td>
+      <td class="negative">▼0.50%</td>
+      <td>39.65</td>
+      <td>39.70</td>
+      <td>39.75</td>
+      <td>39.85</td>
+      <td>39.95</td>
+      <td>39.20</td>
+      <td>1,104</td>
+      <td>14:30</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>仁寶<br>2324.TW<span class="盈">盈</span></td>
+      <td>37.40</td>
+      <td class="negative">▼0.95</td>
+      <td class="negative">▼2.48%</td>
+      <td>37.40</td>
+      <td>37.45</td>
+      <td>38.10</td>
+      <td>38.35</td>
+      <td>38.10</td>
+      <td>37.15</td>
+      <td>18,682</td>
+      <td>14:30</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>和碩<br>4938.TW<span class="盈">盈</span></td>
+      <td>95.2</td>
+      <td class="negative">▼1.2</td>
+      <td class="negative">▼1.24%</td>
+      <td>95.0</td>
+      <td>95.2</td>
+      <td>96.0</td>
+      <td>96.4</td>
+      <td>96.4</td>
+      <td>94.5</td>
+      <td>3,575</td>
+      <td>13:30</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>新漢<br>8234.TWO<span class="盈">盈</span></td>
+      <td>50.9</td>
+      <td class="negative">▼1.6</td>
+      <td class="negative">▼3.05%</td>
+      <td>50.9</td>
+      <td>51.0</td>
+      <td>52.2</td>
+      <td>52.5</td>
+      <td>52.9</td>
+      <td>50.5</td>
+      <td>320</td>
+      <td>13:30</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>台林<br>5353.TWO</td>
+      <td>33.30</td>
+      <td class="negative">▼0.55</td>
+      <td class="negative">▼1.62%</td>
+      <td>33.30</td>
+      <td>33.35</td>
+      <td>33.85</td>
+      <td>33.85</td>
+      <td>33.95</td>
+      <td>33.00</td>
+      <td>253</td>
+      <td>13:30</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>
+```

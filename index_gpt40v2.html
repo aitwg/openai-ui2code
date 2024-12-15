@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Data Table</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F6F7;
+    color: #4D5656;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #D6D6D6;
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .nav-tabs a {
+    text-decoration: none;
+    color: #2E86C1;
+    font-size: 14px;
+  }
+
+  .header-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .button {
+    padding: 5px 10px;
+    border: 1px solid #3498DB;
+    color: #3498DB;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .vip-badge {
+    background-color: #8E44AD;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 2px 5px;
+  }
+
+  .table-container {
+    padding: 10px 20px;
+  }
+
+  .table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table-header {
+    background-color: #F8FAF9;
+    font-weight: bold;
+  }
+
+  .table-header th {
+    padding: 10px;
+    text-align: center;
+    color: #4D5656;
+    white-space: nowrap;
+  }
+
+  .table-row {
+    text-align: center;
+  }
+
+  .table-row:nth-child(even) {
+    background-color: #F9F9F9;
+  }
+
+  .table-row:nth-child(odd) {
+    background-color: #FFFFFF;
+  }
+
+  .table-row td {
+    padding: 8px;
+    white-space: nowrap;
+  }
+
+  .checkbox {
+    border: 1px solid #D6D6D6;
+    width: 15px;
+    height: 15px;
+  }
+
+  .stock-name {
+    color: #1A5276;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .positive {
+    color: #27AE60;
+  }
+
+  .negative {
+    color: #E74C3C;
+  }
+
+  .orange-tag {
+    color: #FFFFFF;
+    background-color: #F39C12;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-tabs {
+      gap: 10px;
+    }
+
+    .header-buttons {
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .table-header th, .table-row td {
+      padding: 5px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="nav-tabs">
+    <a href="#">新增股票</a>
+    <a href="#">排序股票</a>
+    <a href="#">編輯此群組</a>
+    <a href="#">刪除此群組</a>
+  </div>
+  <div class="header-buttons">
+    <div class="button">
+      <span class="icon">&#128197;</span> 自選股行事曆
+    </div>
+    <div class="button">
+      <span class="vip-badge">VIP</span>
+    </div>
+    <div class="button">
+      投資健檢
+    </div>
+  </div>
+</div>
+
+<div class="table-container">
+  <table class="table">
+    <thead class="table-header">
+      <tr>
+        <th><input type="checkbox" class="checkbox"></th>
+        <th>股名/股號</th>
+        <th>股價</th>
+        <th>漲跌</th>
+        <th>漲跌幅(%)</th>
+        <th>買進</th>
+        <th>賣出</th>
+        <th>開盤</th>
+        <th>昨收</th>
+        <th>最高</th>
+        <th>最低</th>
+        <th>成交量(張)</th>
+        <th>時間(CST)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-row">
+        <td><input type="checkbox" class="checkbox"></td>
+        <td class="stock-name">宏達電<span class="orange-tag">電</span></td>
+        <td class="positive">42.30</td>
+        <td class="positive">+0.85</td>
+        <td class="positive">+1.97%</td>
+        <td>42.25</td>
+        <td>42.30</td>
+        <td>43.20</td>
+        <td>43.15</td>
+        <td>43.30</td>
+        <td>42.15</td>
+        <td>4,570</td>
+        <td>14:30</td>
+      </tr>
+      <tr class="table-row">
+        <td><input type="checkbox" class="checkbox"></td>
+        <td class="stock-name">耀登<span class="orange-tag">登</span></td>
+        <td class="positive">109.0</td>
+        <td class="positive">+1.5</td>
+        <td class="positive">+1.36%</td>
+        <td>109.0</td>
+        <td>109.5</td>
+        <td>110.5</td>
+        <td>110.5</td>
+        <td>111.0</td>
+        <td>108.0</td>
+        <td>99</td>
+        <td>13:30</td>
+      </tr>
+      <tr class="table-row">
+        <td><input type="checkbox" class="checkbox"></td>
+        <td class="stock-name">聯發科<span class="orange-tag">科</span></td>
+        <td class="negative">1,410</td>
+        <td class="negative">-30</td>
+        <td class="negative">-2.17%</td>
+        <td>1,405</td>
+        <td>1,410</td>
+        <td>1,385</td>
+        <td>1,380</td>
+        <td>1,410</td>
+        <td>1,365</td>
+        <td>6,317</td>
+        <td>14:30</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

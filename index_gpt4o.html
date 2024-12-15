@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 12px 0;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-tab {
+            color: blue;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .control-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border: 2px solid blue;
+            border-radius: 20px;
+            color: blue;
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .control-button:hover {
+            background-color: blue;
+            color: white;
+        }
+
+        .table-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 10px;
+            overflow-x: auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        thead {
+            background-color: #f0f4f7;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            font-weight: bold;
+            color: #333;
+        }
+
+        td {
+            color: #333;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            margin: 0 auto;
+            border: 1px solid gray;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .positive {
+            color: green;
+            font-weight: bold;
+        }
+
+        .negative {
+            color: red;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header-tab {
+                font-size: 14px;
+            }
+
+            .control-button {
+                font-size: 13px;
+                padding: 8px 16px;
+            }
+
+            th, td {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="header-tab">新增股票</span>
+        <span class="header-tab">排序股票</span>
+        <span class="header-tab">編輯此群組</span>
+        <span class="header-tab">刪除此群組</span>
+    </header>
+    <div class="controls">
+        <div class="control-button">自選股票行事曆</div>
+        <div class="control-button">投資健檢</div>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>股名/股號</th>
+                    <th>股價</th>
+                    <th>漲跌</th>
+                    <th>漲跌幅(%)</th>
+                    <th>買進</th>
+                    <th>賣出</th>
+                    <th>開盤</th>
+                    <th>昨收</th>
+                    <th>最高</th>
+                    <th>最低</th>
+                    <th>成交量(張)</th>
+                    <th>時間(CST)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><div class="checkbox"></div></td>
+                    <td>宏達電<br><span>2498.TW</span></td>
+                    <td class="positive">42.30</td>
+                    <td class="negative">▼0.85</td>
+                    <td class="negative">▼1.97%</td>
+                    <td>42.25</td>
+                    <td>42.30</td>
+                    <td>43.20</td>
+                    <td>43.15</td>
+                    <td>43.30</td>
+                    <td>42.15</td>
+                    <td>4,570</td>
+                    <td>14:30</td>
+                </tr>
+                <tr>
+                    <td><div class="checkbox"></div></td>
+                    <td>耀登<br><span>3138.TW</span></td>
+                    <td class="positive">109.0</td>
+                    <td class="negative">▼1.5</td>
+                    <td class="negative">▼1.36%</td>
+                    <td>109.0</td>
+                    <td>109.5</td>
+                    <td>110.5</td>
+                    <td>110.5</td>
+                    <td>111.0</td>
+                    <td>108.0</td>
+                    <td>99</td>
+                    <td>13:30</td>
+                </tr>
+                <tr>
+                    <td><div class="checkbox"></div></td>
+                    <td>聯發科<br><span>2454.TW</span></td>
+                    <td class="negative">1,410</td>
+                    <td class="negative">▼30</td>
+                    <td class="negative">▼2.17%</td>
+                    <td>1,405</td>
+                    <td>1,410</td>
+                    <td>1,385</td>
+                    <td>1,380</td>
+                    <td>1,410</td>
+                    <td>1,365</td>
+                    <td>6,317</td>
+                    <td>14:30</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
