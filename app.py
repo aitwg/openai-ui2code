@@ -3,20 +3,16 @@ import os
 import pathlib
 import streamlit as st
 from PIL import Image
+from dotenv import load_dotenv
 from openai import OpenAI
 
-# $export GEMINI_API_KEY='YOU API KEY'
-# $export OPENAI_MODEL_NAME=gemini-1.5-flash
-# $export OPENAI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
-OPENAI_API_KEY = os.environ.get("GEMINI_API_KEY")
-
-# $export ROUTERAPI_KEY='YOU API KEY'
-# $export OPENAI_MODEL_NAME=openai/gpt-4o-2024-11-20
-# $export OPENAI_BASE_URL=https://openrouter.ai/api/v1
-# OPENAI_API_KEY = os.environ.get("ROUTERAPI_KEY")
-_MODEL_NAME = os.environ.get("OPENAI_MODEL_NAME")
-_BASE_URL = os.environ.get("OPENAI_BASE_URL")
-# OPENAI_API_KEY = 'YOU API KEY'
+load_dotenv()
+OPENAI_API_KEY = os.getenv("API_KEY")
+print(OPENAI_API_KEY)
+_MODEL_NAME = os.getenv("MODEL_NAME")
+print(_MODEL_NAME)
+_BASE_URL = os.getenv("BASE_URL")
+print(_BASE_URL)
 client = OpenAI(api_key=OPENAI_API_KEY, base_url=_BASE_URL)
 
 # Framework selection (e.g., Tailwind, Bootstrap, etc.)
